@@ -22,8 +22,8 @@ float tempDev[ONE_WIRE_MAX_DEV]; //Saving the last measurement of temperature
 float tempDevLast[ONE_WIRE_MAX_DEV]; //Previous temperature measurement
 long lastTemp; //The last measurement
 const int durationTemp = 1 * 10 * 1000; //The frequency of temperature measurement
-const char* username = "grazianotermostato";
-const char*  userPassword = "grazianotermostato2018";
+const char* username = "*";
+const char*  userPassword = "*";
 int thermostatPin = D6;
 
 
@@ -154,7 +154,7 @@ void TempLoop(long now){
         if (i > 0){
           messageBody += ", ";
         }
-        messageBody += "\"" + sensorId + "\" : \"" + tempC + "\""; 
+        messageBody += "\"" + GetAddressToString(devAddr[i]) + "\" : \"" + tempC + "\""; 
       }
 
       messageBody += "}";
